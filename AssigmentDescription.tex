@@ -1,0 +1,61 @@
+\documentclass{scrreprt}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{breakurl}
+\usepackage{tabulary}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+\author{Rick Rongen - 316789 - 2502968}
+\title{DS-ML Mini-Project - Diamonds}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\chapter{Dataset Choses}
+		The dataset I'm planning to use is called Diamonds and can be find on Kaggle using the following link: \url{https://www.kaggle.com/shivam2503/diamonds}\par
+		
+		This dataset describes all kinds of different diamonds with their quality (cut, color, carat and clarity) and size (x, y, z, dept and table). Also it describes the price of the diamond. I would like to use different machine learning techniques to calculate the price of a diamond given one or more of these measurements. Also I would like to be able to do the reverse and see what quality a diamond may be given it's size and price.
+		
+	\chapter{Example Data}
+		In Pandas the cut, color and clarity column will be separated into separate columns or be represented as a number.\par
+		Example data:
+		\begin{table}[ht]
+			\centering
+			\caption{Data}
+			\label{table-data}
+			\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+				\hline id & carat & cut       & color & clarity & depth & table & price & x    & y    & z    \\ \hline
+				1  & 0.23  & Ideal     & E     & SI2     & 61.5  & 55    & 326   & 3.95 & 3.98 & 2.43 \\ \hline
+				2  & 0.21  & Premium   & E     & SI1     & 59.8  & 61    & 326   & 3.89 & 3.84 & 2.31 \\ \hline
+				3  & 0.23  & Good      & E     & VS1     & 56.9  & 65    & 327   & 4.05 & 4.07 & 2.31 \\ \hline
+				4  & 0.29  & Premium   & I     & VS2     & 62.4  & 58    & 334   & 4.2  & 4.23 & 2.63 \\ \hline
+				5  & 0.31  & Good      & J     & SI2     & 63.3  & 58    & 335   & 4.34 & 4.35 & 2.75 \\ \hline
+				6  & 0.24  & Very Good & J     & VVS2    & 62.8  & 57    & 336   & 3.94 & 3.96 & 2.48 \\ \hline
+				7  & 0.24  & Very Good & I     & VVS1    & 62.3  & 57    & 336   & 3.95 & 3.98 & 2.47 \\ \hline
+				8  & 0.26  & Very Good & H     & SI1     & 61.9  & 55    & 337   & 4.07 & 4.11 & 2.53 \\ \hline
+				9  & 0.22  & Fair      & E     & VS2     & 65.1  & 61    & 337   & 3.87 & 3.78 & 2.49 \\ \hline
+				10 & 0.23  & Very Good & H     & VS1     & 59.4  & 61    & 338   & 4    & 4.05 & 2.39 \\ \hline
+				11 & 0.3   & Good      & J     & SI1     & 64    & 55    & 339   & 4.25 & 4.28 & 2.73 \\ \hline
+				12 & 0.23  & Ideal     & J     & VS1     & 62.8  & 56    & 340   & 3.93 & 3.9  & 2.46 \\ \hline
+				13 & 0.22  & Premium   & F     & SI1     & 60.4  & 61    & 342   & 3.88 & 3.84 & 2.33 \\ \hline
+				14 & 0.31  & Ideal     & J     & SI2     & 62.2  & 54    & 344   & 4.35 & 4.37 & 2.71 \\ \hline
+			\end{tabular}			
+		\end{table}
+	
+		\section{Table Description}
+		\begin{tabulary}{\linewidth}{lL}
+			carat & Carat weight of the diamond \\\hline
+			cut & The cut quality of the diamond. Quality in increasing order Fair, Good, Very Good, Premium, Ideal \\\hline
+			color & Color of the diamond, with D being the best and J the worst \\\hline
+			clarity & How obvious inclusions are within the diamond:(in order from best to worst, FL = flawless, I3= level 3 inclusions) FL,IF, VVS1, VVS2, VS1, VS2, SI1, SI2, I1, I2, I3 \\\hline
+			depth & Total depth percentage = z / mean(x, y) = 2 * z / (x + y) \\\hline
+			table & Width of top of diamond relative to widest point  \\\hline
+			price & The price of the diamond \\\hline
+			x & Length mm \\\hline
+			y & Width mm \\\hline
+			z & Depth mm \\\hline
+		\end{tabulary}
+\end{document}
